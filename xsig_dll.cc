@@ -195,8 +195,6 @@ int match(const wchar_t* const sig_file) {
       }
     }
 
-
-
     if (main_reps.empty()) return 0;
 
     if (!g_make_h) return 0;
