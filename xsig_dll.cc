@@ -166,20 +166,20 @@ int match(const wchar_t* const sig_file) {
         continue;
       }
 
-      xlib::xblk match_blk;
+      bool matched = false;
       for(const auto& blk : main_blks) {
         if(!sig.match({blk})) continue;
-        match_blk = blk;
+        matched = true;
         break;
       }
 
-      if (0 == match_blk.size()) {
+      if (!matched) {
         xerr << XTEXT("xsig match fail !");
         xerr << v;
         continue;
       }
 
-      const auto reps = sig.report(match_blk.begin());
+      const auto reps = sig.report(main_blks.at(0).begin());
       for (const auto& vv : reps) {
         auto it = main_reps.find(vv.first);
         if (main_reps.end() == it) {
