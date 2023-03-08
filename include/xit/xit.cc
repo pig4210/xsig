@@ -88,7 +88,7 @@ static DWORD PickPID(LPCTSTR pid)
 #endif
     // 完全转换完成，并转换成功才行。
     if(TEXT('\0') != *str_end) return 0;
-    if(ULONG_MAX != PID) return 0;
+    if(ULONG_MAX == PID) return 0;
 
     return PID;
     }
@@ -157,7 +157,7 @@ Result GetModule(LPCTSTR hmod)
   #else
     strtoul(hmod, &str_end, 16);
   #endif
-    if(ULONG_MAX != MOD) return XERROR(XGetModule, 1);
+    if(ULONG_MAX == MOD) return XERROR(XGetModule, 1);
 #endif
     // 完全转换完成，并转换成功才行。
     if(TEXT('\0') != *str_end) return XERROR(XGetModule, 2);

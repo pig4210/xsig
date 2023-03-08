@@ -207,10 +207,10 @@ int match(const wchar_t* const sig_file) {
 
     xlib::xmsg m;
     m << "#ifndef _sig_value_array_H_\n"
-          "#define _sig_value_array_H_\n\n"
-          "class sig_value_array {\n"
-          " public:\n"
-          "  static inline constexpr uint64_t values[] = {\n";
+         "#define _sig_value_array_H_\n\n"
+         "class sig_value_array {\n"
+         " public:\n"
+         "  static inline constexpr uint64_t values[] = {\n";
     
     file.write((const char*)m.data(), m.size());
     for (const auto& v : main_reps) {
